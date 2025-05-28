@@ -12,6 +12,9 @@ import ArticleList from './Article';
 import type Article from '../types/typeArticle';
 import Arr from './Component';
 import Modal from './Modal';
+import Query from './Query';
+import OrderForm from './Formik';
+// import ReactPaginate from 'react-paginate';
 
 interface ArticlesHttpResponse {
   hits: Article[];
@@ -69,7 +72,6 @@ export default function App() {
       {isError && <p>Whoops, something went wrong! Please try again!</p>}
       {articles.length > 0 && <ArticleList items={articles} />}
       <Arr />
-
       <div>
         <h1>Main content of the page</h1>
         <button onClick={openModalWindow}>Open modal</button>
@@ -80,7 +82,9 @@ export default function App() {
             <p>This is a reusable modal with dynamic content.</p>
           </Modal>
         )}
+        <OrderForm />
       </div>
+      <Query />
     </>
   );
 }
